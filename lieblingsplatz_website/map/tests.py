@@ -1,6 +1,8 @@
 # coding=utf-8
+from django.core.urlresolvers import resolve
 from django.test import TestCase
 from map.models import Kita
+from map.views import home_page
 
 class ModelTests(TestCase):
     def test_kita_model(self):
@@ -35,3 +37,21 @@ class ModelTests(TestCase):
         self.assertEqual(saved_first_kita.district, u'Kreuzberg')
         self.assertEqual(saved_first_kita.zip_code, 10825)
         self.assertEqual(saved_first_kita.senats_id, 2342)
+
+
+class HomePageTest(TestCase):
+
+    def test_root_urlresolves_to_home_page_view(self):
+        found = resolve('/')
+        self.assertEqual(found.func, home_page)
+
+
+class MapFunctionNotOverwritten(TestCase):
+
+    def test_map(self):
+        def do_stuff(a):
+            return a + 10
+
+        list1 = list(range(5))
+        list2 = list(map(do_stuff, list1))
+        self.assertEqual(list2[0], 10)
