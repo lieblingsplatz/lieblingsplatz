@@ -53,6 +53,9 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'lieblingsplatz_website.urls'
 
+WSGI_APPLICATION = 'lieblingsplatz_website.wsgi.application'
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

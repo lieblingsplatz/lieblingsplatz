@@ -4,5 +4,15 @@
     </head>
     <body>
         <h1>Lieblingsplatz</h1>
+        <ul>
+            {% for kita in kitas %}
+                {% for header, value in kita.fields.items %}
+                    <li>
+                        <div class="header">{{ header|title}}:</div>
+                        <div class="entry">{{ value }}</div>
+                    </li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
     </body>
 </html>

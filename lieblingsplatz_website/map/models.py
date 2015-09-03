@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Kita(models.Model):
  name = models.TextField()
  latitude = models.FloatField()
