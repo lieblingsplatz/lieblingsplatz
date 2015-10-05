@@ -45,26 +45,26 @@ class HomePageTest(TestCase):
 
     def test_root_urlresolves_to_home_page_view(self):
         found = resolve('/')
-        self.assertEqual(found.func, home_page)
+        self.assertEqual(home_page, found.func)
 
     def test_home_page_returns_correct_html(self):
         request = HttpRequest()
         response = home_page(request)
         expected_html = render_to_string('home.html')
-        self.assertEqual(response.content.decode(), expected_html)
+        self.assertEqual(expected_html, response.content.decode())
 
 
 class ListKitasPageTest(TestCase):
 
     def test_root_urlresolves_to_home_page_view(self):
         found = resolve('/list-kitas')
-        self.assertEqual(found.func, list_kitas)
+        self.assertEqual(list_kitas,found.func)
 
-    def test_home_page_returns_correct_html(self):
+    def list_kitas_page_returns_correct_html(self):
         request = HttpRequest()
-        response = home_page(request)
+        response = list_kitas(request)
         expected_html = render_to_string('list_kitas.html')
-        self.assertEqual(response.content.decode(), expected_html)
+        self.assertEqual(expected_html, response.content.decode())
 
 
 class MapFunctionNotOverwritten(TestCase):
@@ -75,4 +75,4 @@ class MapFunctionNotOverwritten(TestCase):
 
         list1 = list(range(5))
         list2 = list(map(do_stuff, list1))
-        self.assertEqual(list2[0], 10)
+        self.assertEqual(10, list2[0])
