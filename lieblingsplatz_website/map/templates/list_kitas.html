@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Lieblingsplatz</title>
+    </head>
+    <body>
+        <h1>Lieblingsplatz</h1>
+            {% for kita in kitas %}
+                <ul>
+                {% for header, value in kita.fields.items %}
+                    <li>
+                        <div class="header">{{ header|title}}:</div>
+                        <div class="entry">{{ value }}</div>
+                    </li>
+                {% endfor %}
+                </ul>
+            {% endfor %}
+    </body>
+</html>

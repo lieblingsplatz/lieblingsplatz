@@ -4,7 +4,7 @@ from django.test import TestCase
 from django.http import HttpRequest
 from django.template.loader import render_to_string
 from map.models import Kita
-from map.views import home_page
+from map.views import home_page, list_kitas
 
 class ModelTests(TestCase):
     def test_kita_model(self):
@@ -51,6 +51,19 @@ class HomePageTest(TestCase):
         request = HttpRequest()
         response = home_page(request)
         expected_html = render_to_string('home.html')
+        self.assertEqual(response.content.decode(), expected_html)
+
+
+class ListKitasPageTest(TestCase):
+
+    def test_root_urlresolves_to_home_page_view(self):
+        found = resolve('/list-kitas')
+        self.assertEqual(found.func, list_kitas)
+
+    def test_home_page_returns_correct_html(self):
+        request = HttpRequest()
+        response = home_page(request)
+        expected_html = render_to_string('list_kitas.html')
         self.assertEqual(response.content.decode(), expected_html)
 
 
