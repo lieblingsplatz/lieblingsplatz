@@ -7,6 +7,6 @@ urlpatterns = [
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^$', 'map.views.home_page', name='home'),
-
+    url(r'^list-kitas$', 'map.views.list_kitas', name='list-kitas'),
     url(r'^admin/', include(admin.site.urls)),
 ]

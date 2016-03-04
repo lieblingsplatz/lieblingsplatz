@@ -1,18 +1,29 @@
+{% load staticfiles %}
 <html>
     <head>
         <title>Lieblingsplatz</title>
+        <link rel="stylesheet" href="{% static "css/main.css" %}" />
+        <script src="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.js"></script>
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.css" />
     </head>
     <body>
         <h1>Lieblingsplatz</h1>
-        <ul>
+        <div id="map">
+        <script>
+            // var map = L.map('map').setView([52.5099, 13.469], 13);
+            var map = L.map('map').setView([52.4187, 13.2887], 13);
+
+            L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            L.marker([52.4187, 13.2887]).addTo(map)
+                .bindPopup('A pretty CSS3 popup.<br> Easily customizable.');
             {% for kita in kitas %}
-                {% for header, value in kita.fields.items %}
-                    <li>
-                        <div class="header">{{ header|title}}:</div>
-                        <div class="entry">{{ value }}</div>
-                    </li>
-                {% endfor %}
+                var marker = L.marker([{{ kita.fields.latitude }}, {{ kita.fields.longitude }}]).addTo(map)
+                    .bindPopup("{{ kita.fields.name|linebreaks }}");
             {% endfor %}
-        </ul>
+        </script>
+
+        </div>
     </body>
 </html>
