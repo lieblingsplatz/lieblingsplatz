@@ -16,8 +16,7 @@
             L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             }).addTo(map);
-            L.marker([52.4187, 13.2887]).addTo(map)
-                .bindPopup('A pretty CSS3 popup.<br> Easily customizable.');
+            
             {% for kita in kitas %}
                 var marker = L.marker([{{ kita.fields.latitude }}, {{ kita.fields.longitude }}]).addTo(map)
                     .bindPopup("{{ kita.fields.name|linebreaks }}");
