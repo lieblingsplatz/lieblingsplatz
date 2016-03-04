@@ -5,6 +5,7 @@
     <body>
         <h1>Lieblingsplatz</h1>
             {% for kita in kitas %}
+                <h2>{{ kita }}</h2>
                 <ul>
                 {% for header, value in kita.fields.items %}
                     <li>
