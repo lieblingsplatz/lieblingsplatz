@@ -5,14 +5,39 @@
     <body>
         <h1>Lieblingsplatz</h1>
             {% for kita in kitas %}
-                <h2>{{ kita }}</h2>
+                <h2>{{ kita.fields.name }}</h2>
+                <p> {{ kita.fields.address }} <br>
+                {{ kita.fields.zip_code }} {{ kita.fields.city }}
+                </p>
                 <ul>
+                <!-- 
                 {% for header, value in kita.fields.items %}
                     <li>
                         <div class="header">{{ header|title}}:</div>
                         <div class="entry">{{ value }}</div>
                     </li>
-                {% endfor %}
+                {% endfor %} -->
+                    <li>
+                        Bezirk: {{ kita.fields.district }}
+                    </li>
+                    <li>
+                        Email: {{ kita.fields.email }}
+                    </li>
+                    <li>
+                        Website: {{ kita.fields.website }}
+                    </li>
+                    <li>
+                        Pädagogische Schwerpunkte: {{ kita.fields.pedagogics }}
+                    </li>
+                    <li>
+                        Thematische Schwerpunkte: {{ kita.fields.focus }}
+                    </li>
+                    <li>
+                        Mehrsprachigkeit: {{ kita.fields.multilingualism }}
+                    </li>
+                    <li>
+                        besondere Angebote: {{ kita.fields.extras }}
+                    </li>
                 </ul>
             {% endfor %}
     </body>
