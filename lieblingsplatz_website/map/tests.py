@@ -6,6 +6,7 @@ from django.template.loader import render_to_string
 from map.models import Kita
 from map.views import home_page, list_kitas
 
+
 class ModelTests(TestCase):
     def test_kita_model(self):
         first_kita = Kita()
@@ -43,7 +44,7 @@ class ModelTests(TestCase):
 
 class HomePageTest(TestCase):
 
-    def test_root_urlresolves_to_home_page_view(self):
+    def test_root_url_resolves_to_home_page_view(self):
         found = resolve('/')
         self.assertEqual(home_page, found.func)
 
@@ -56,7 +57,7 @@ class HomePageTest(TestCase):
 
 class ListKitasPageTest(TestCase):
 
-    def test_root_urlresolves_to_home_page_view(self):
+    def test_root_url_resolves_to_home_page_view(self):
         found = resolve('/list-kitas')
         self.assertEqual(list_kitas,found.func)
 
