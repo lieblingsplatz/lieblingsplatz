@@ -21,7 +21,17 @@ def import_csv_into_db(filename):
                 longitude=float(row["lon"]),
                 address=row["lblStrasse"],
                 zip_code=row["PLZ"],
+                city=row["Ort"],
                 district=row["Stadtteil"],
-                senats_id=row["Senats-id"]
+                senats_id=row["Senats-id"],
+                email=row["HLinkEMail"],
+                website=row["HLinkWeb"],
+                kind_of_facility=row["lblEinrichtungsart"],
+                agency=row["lblTraegerName"],
+                kind_of_agency=row["lblTraegerart"],
+                pedagogics=row["lblPaedSchwerpunkte"],
+                focus=row["lblThemSchwerpunkte"],
+                multilingualism=row["lblBesondereAngebote"],
+                extras=row["lblMehrsprachigkeit"]
             ).save()
 

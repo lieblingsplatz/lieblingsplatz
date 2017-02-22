@@ -16,7 +16,8 @@ class NewVisitorTest(unittest.TestCase):
 
 
     def insert_test_data_into_db(self):
-        file_name = "../scrape/150823_kitas_test.csv"
+        #file_name = "../scrape/150823_kitas_test.csv"
+        file_name = "../scrape/160123_kitas_arbeitsstand_helen_500.csv"
         importer.import_csv_into_db(file_name)
 
 
