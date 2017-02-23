@@ -2,24 +2,22 @@ from django.db import models
 
 
 class Kita(models.Model):
-    name = models.TextField()
+    name = models.CharField(max_length=255)
     # address
     latitude = models.FloatField()
     longitude = models.FloatField()
-    address = models.TextField()
+    address = models.CharField(max_length=255)
     zip_code = models.IntegerField()
-    city = models.TextField()
-    district = models.TextField() # better: define choices als field option!
+    city = models.CharField(max_length=255)
+    district = models.CharField(max_length=255) # better: define choices als field option!
     senats_id = models.IntegerField()
-    # phone (many-to-one!)
-    #phonenumber = models.
     # email (many-to-one! later maybe) website
-    email = models.EmailField()
+    email = models.CharField(max_length=255) # EmailField()
     website = models.URLField()
     # orga-info
-    kind_of_facility = models.TextField() #einrichtungsart
-    agency = models.TextField() #traeger
-    kind_of_agency = models.TextField() #traegerart
+    kind_of_facility = models.CharField(max_length=255) #einrichtungsart
+    agency = models.CharField(max_length=255) #traeger
+    kind_of_agency = models.CharField(max_length=255) #traegerart
     # pedagogics
     # lblPaedAnsaetze -> in Helens Liste nicht vorhanden
     pedagogics = models.TextField() # lblPaedSchwerpunkte
@@ -28,4 +26,8 @@ class Kita(models.Model):
     extras = models.TextField() # lblBesondereAngebote
     # opening hours
     # numbers, ages, structure
+
+class Phone(models.Model):
+    kita = models.ForeignKey(Kita, on_delete=models.CASCADE)
+    phonenumber = models.CharField(max_length=31)
  
