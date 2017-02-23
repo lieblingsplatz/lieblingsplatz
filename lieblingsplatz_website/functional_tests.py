@@ -11,14 +11,13 @@ class NewVisitorTest(unittest.TestCase):
         self.browser = webdriver.Firefox()
         self.browser.implicitly_wait(3)
 
-    #def tearDown(self):
-        #self.browser.quit()
-
+    def tearDown(self):
+        self.browser.quit()
 
     def insert_test_data_into_db(self):
-        file_name = "../scrape/150823_kitas_test.csv"
+        #file_name = "../scrape/150823_kitas_test.csv"
+        file_name = "../scrape/160123_kitas_arbeitsstand_helen_500.csv"
         importer.import_csv_into_db(file_name)
-
 
     def test_can_see_kitas_in_english(self):
         self.browser.get('http://localhost:8000/list-kitas')
@@ -33,7 +32,6 @@ class NewVisitorTest(unittest.TestCase):
         self.assertIn("District:", header_texts)
         self.assertIn("Latitude:", header_texts)
         self.assertIn("Longitude:", header_texts)
-
 
     def test_can_see_map_with_kitas_in_english(self):
         self.browser.get('http://localhost:8000/')
@@ -55,8 +53,7 @@ class NewVisitorTest(unittest.TestCase):
         expected_size = "786px"
         self.assertEqual(expected_size, map.value_of_css_property("height"))
 
-
         self.fail("Finish test!")
 
 if __name__ == '__main__':
-    unittest.main(warnings='ignore')
+    unittest.main()
