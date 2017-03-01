@@ -17,8 +17,3 @@ def list_kitas(request):
     context = {"kitas": kitas}
     return render(request, 'list_kitas.html', context)
 
-
-def lieblingsplatz(request):
-    kitas = serializers.serialize("python", Kita.objects.all())
-    context = {"kitas": kitas}
-    return render(request, 'Lieblingsplatz.html', context)

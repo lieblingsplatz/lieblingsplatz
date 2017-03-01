@@ -1,1 +1,24 @@
-#map { height: 786px; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#map {
+    height: 100vh;
+    position: relative;
+}
+
+.logo-box {
+    display: inline-block;
+    position: absolute;
+    top: -30px; 
+    left: 50px; 
+}
+
+.menu-box {
+    display: inline-block;
+    position: absolute;
+    top: 0px; 
+    left: 30px; 
+}
