@@ -4,9 +4,36 @@
     box-sizing: border-box;
 }
 
+html {
+    background-color: #ffffff;
+    color: #555;
+    font-family: 'PT Sans', 'Arial', sans-serif;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+}
+
 #map {
     height: 100vh;
     position: relative;
+}
+
+.leaflet-popup-content {
+    color: #ffffff;
+    background: #000;
+    font-family: 'PT Sans', 'Arial', sans-serif;
+    font-size: 15px;
+    text-align: center;
+}
+
+h4 {
+    text-transform: uppercase;
+    font-weight: 200;
+}
+
+.custom .leaflet-popup-tip,
+.custom .leaflet-popup-content-wrapper {
+    background: #000;
+    border-radius: 0;
 }
 
 .logo-box {

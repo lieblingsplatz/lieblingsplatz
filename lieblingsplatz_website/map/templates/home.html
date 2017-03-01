@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="{% static "css/main.css" %}" />
         <script src="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.js"></script>
         <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.css" />
+        <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet"> 
     </head>
     <body>
         <div id="map">
@@ -23,10 +24,17 @@
                     iconAnchor:   [12, 24], // point of the icon which will correspond to marker's location
                     popupAnchor:  [0, -24] // point from which the popup should open relative to the iconAnchor
                 });
+                // specify popup options 
+                var customOptions =
+                    {
+                    'className' : 'custom'
+                    }
                 
                 {% for kita in kitas %}
+                    var kitaPopup = "<h4>{{ kita.fields.name|linebreaks }}</h4> {{ kita.fields.address }}  {{ kita.fields.zip_code }} {{ kita.fields.city }} <br> Telefon <br> Email {{ kita.fields.email }}";
+
                     var marker = L.marker([{{ kita.fields.latitude }}, {{ kita.fields.longitude }}], {icon: yellowIcon}).addTo(map)
-                        .bindPopup("{{ kita.fields.name|linebreaks }}");
+                        .bindPopup(kitaPopup, customOptions);
                 {% endfor %}
             </script>
         </div>
