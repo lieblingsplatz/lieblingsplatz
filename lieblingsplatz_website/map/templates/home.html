@@ -31,10 +31,14 @@
                     }
                 
                 {% for kita in kitas %}
-                    var kitaPopup = "<h4>{{ kita.fields.name|linebreaks }}</h4> {{ kita.fields.address }}  {{ kita.fields.zip_code }} {{ kita.fields.city }} <br> Telefon <br> Email {{ kita.fields.email }}";
+                    var kitaPopupContent = "<h4>{{ kita.fields.name|linebreaks }}</h4> {{ kita.fields.address }} &nbsp; {{ kita.fields.zip_code }} {{ kita.fields.city }} <br> Telefon ";
+                    // Telefon Abfrage und hier her!
+                    {% if kita.fields.email %}
+                        var kitaPopupContent = kitaPopupContent.concat("<br> Email {{ kita.fields.email }}");
+                    {% endif %}
 
                     var marker = L.marker([{{ kita.fields.latitude }}, {{ kita.fields.longitude }}], {icon: yellowIcon}).addTo(map)
-                        .bindPopup(kitaPopup, customOptions);
+                        .bindPopup(kitaPopupContent, customOptions);
                 {% endfor %}
             </script>
         </div>
