@@ -6,4 +6,4 @@ class KitaAdmin(admin.ModelAdmin):
     list_display = ('name',)
 
 admin.site.register(Kita, KitaAdmin)
-
+admin.site.register(Phone)

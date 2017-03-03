@@ -1,3 +1,5 @@
+/* basic setup */
+
 * {
     margin: 0;
     padding: 0;
@@ -12,29 +14,19 @@ html {
     text-rendering: optimizeLegibility;
 }
 
-#map {
+/* map*/
+
+.map {
     height: 100vh;
     position: relative;
 }
 
-.leaflet-popup-content {
-    color: #ffffff;
-    background: #000;
-    font-family: 'PT Sans', 'Arial', sans-serif;
-    font-size: 15px;
-    text-align: center;
+.map-kita {
+    height: 60vh;
+    position: relative;
 }
 
-h4 {
-    text-transform: uppercase;
-    font-weight: 200;
-}
-
-.custom .leaflet-popup-tip,
-.custom .leaflet-popup-content-wrapper {
-    background: #000;
-    border-radius: 0;
-}
+/* logo and menu on map */
 
 .logo-box {
     display: inline-block;
@@ -49,3 +41,33 @@ h4 {
     top: 0px; 
     left: 30px; 
 }
+
+/* leaflet popups */
+
+.leaflet-popup-content {
+    color: #ffffff;
+    background: #000;
+    font-family: 'PT Sans', 'Arial', sans-serif;
+    font-size: 15px;
+    text-align: center;
+}
+
+.leaflet-popup-content a:link,
+.leaflet-popup-content a:visited {
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 200;
+}
+
+/*.leaflet-popup-content a:hover,
+.leaflet-popup-content a:active {
+    border-bottom: 1px solid #ffffff;
+}*/
+
+.custom .leaflet-popup-tip,
+.custom .leaflet-popup-content-wrapper {
+    background: #000;
+    border-radius: 0;
+}
+

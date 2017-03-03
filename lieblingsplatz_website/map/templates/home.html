@@ -8,7 +8,7 @@
         <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet"> 
     </head>
     <body>
-        <div id="map">
+        <div id="map" class="map">
             <script>
                 // var map = L.map('map').setView([52.5099, 13.469], 13);
                 var map = L.map('map').setView([52.5165, 13.3813], 14);
@@ -31,10 +31,10 @@
                     }
                 
                 {% for kita in kitas %}
-                    var kitaPopupContent = "<h4>{{ kita.fields.name|linebreaks }}</h4> {{ kita.fields.address }} &nbsp; {{ kita.fields.zip_code }} {{ kita.fields.city }} <br> Telefon ";
-                    // Telefon Abfrage und hier her!
+                    var kitaPopupContent = '<h4><a href="{% url 'kita_detail' pk=kita.pk %}">{{ kita.fields.name|linebreaks }}</a></h4> {{ kita.fields.address }} &nbsp; {{ kita.fields.zip_code }} {{ kita.fields.city }} <br> Telefon ';
+                    // Telefon Abfrage und hier her!  url 'kita_detail' pk=kita.fields.pk 
                     {% if kita.fields.email %}
-                        var kitaPopupContent = kitaPopupContent.concat("<br> Email {{ kita.fields.email }}");
+                        var kitaPopupContent = kitaPopupContent.concat('<br> Email {{ kita.fields.email }}');
                     {% endif %}
 
                     var marker = L.marker([{{ kita.fields.latitude }}, {{ kita.fields.longitude }}], {icon: yellowIcon}).addTo(map)

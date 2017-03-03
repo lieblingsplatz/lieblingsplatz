@@ -1,0 +1,28 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>Lieblingsplatz</title>
+        <link rel="stylesheet" href="{% static "css/main.css" %}" />
+        <script src="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.js"></script>
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.css" />
+        <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet"> 
+    </head>
+    <body>
+        <div id="map" class="map-kita">
+            <script>
+                var map = L.map('map').setView([{{ kita.latitude }}, {{ kita.longitude }}], 16);
+
+                L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                }).addTo(map);
+
+            </script>
+        </div>
+        <div class="logo-box">
+            <img src="{% static "img/logo.png" %}" alt="Lieblingsplatzlogo.">
+        </div>
+        <div class="menu-box">
+            <img src="{% static "img/menu-bg.png" %}" alt="Lieblingsplatzlogo.">
+        </div>
+    </body>
+</html>

@@ -27,7 +27,13 @@ class Kita(models.Model):
     # opening hours
     # numbers, ages, structure
 
+    def __str__(self):
+        return self.name
+
 class Phone(models.Model):
     kita = models.ForeignKey(Kita, on_delete=models.CASCADE)
     phonenumber = models.CharField(max_length=31)
+
+    def __str__(self):
+        return self.phonenumber
  
