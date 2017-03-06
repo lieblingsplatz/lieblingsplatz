@@ -1,8 +1,8 @@
-<html>
-    <head>
-        <title>Lieblingsplatz</title>
-    </head>
-    <body>
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+    <div class="kita-list">
         <h1>Lieblingsplatz</h1>
             {% for kita in kitas %}
                 <h2>{{ kita.fields.name }}</h2>
@@ -40,5 +40,5 @@
                     </li>
                 </ul>
             {% endfor %}
-    </body>
-</html>
+    </div>
+{% endblock %}
