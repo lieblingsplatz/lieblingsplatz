@@ -1,44 +1,76 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
+
 {% block content %}
-    <div class="kita-list">
-        <h1>Lieblingsplatz</h1>
-            {% for kita in kitas %}
-                <h2>{{ kita.fields.name }}</h2>
-                <p> {{ kita.fields.address }} <br>
-                {{ kita.fields.zip_code }} {{ kita.fields.city }}
-                </p>
-                <ul>
-                <!-- 
-                {% for header, value in kita.fields.items %}
-                    <li>
-                        <div class="header">{{ header|title}}:</div>
-                        <div class="entry">{{ value }}</div>
-                    </li>
-                {% endfor %} -->
-                    <li>
-                        Bezirk: {{ kita.fields.district }}
-                    </li>
-                    <li>
-                        Email: {{ kita.fields.email }}
-                    </li>
-                    <li>
-                        Website: {{ kita.fields.website }}
-                    </li>
-                    <li>
-                        Pädagogische Schwerpunkte: {{ kita.fields.pedagogics }}
-                    </li>
-                    <li>
-                        Thematische Schwerpunkte: {{ kita.fields.focus }}
-                    </li>
-                    <li>
-                        Mehrsprachigkeit: {{ kita.fields.multilingualism }}
-                    </li>
-                    <li>
-                        besondere Angebote: {{ kita.fields.extras }}
-                    </li>
-                </ul>
-            {% endfor %}
+<div class="kita-detail">
+    <div class="row">
+        <div class="col-3">
+        </div>
+        <div class="col-9">
+            <div class="kita-district">
+                <h4>{{ kita.district }}</h4>
+            </div>
+            <div class="kita-name">
+                <h1>{{ kita.name }}</h1>
+            </div>
+        </div>
     </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-4">
+            <div class="kita-contact">
+                <ul>
+                    <li><h4>KONTAKT</h4></li>
+                    <li><br></li>
+                    <li>{{ kita.name }}</li>
+                    <li>{{ kita.address }}</li>
+                    <li>{{ kita.zip_code }} {{ kita.city }}</li>
+                    <li><br></li>
+                    <li>Tel: </li>
+                    <li><br></li>
+                    <li><a href="mailto:{{ kita.email }}" target="_top">{{ kita.email }}</a></li>
+                    <li><a href="http://{{ kita.website }}" target="_blank">{{ kita.website }}</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="kita-img">
+                <img src="{% static "img/kita-pic.png" %}">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-5">
+            <div class="kita-infos">
+                <ul>
+                    <li><h4>INFOS</h4></li>
+                    <li><br></li>
+                    <li><h5>Einrichtungsart</h5></li>
+                    <li>{{ kita.kind_of_facility }}</li>
+                    <li><br></li>
+                    <li><h5>Träger</h5></li>
+                    <li>{{ kita.agency }}</li>
+                    <li><br></li>
+                    <li><h5>Trägerart</h5>
+                    <li>{{ kita.kind_of_agency }}</li>
+                    <li><br></li>
+                    <li><h5>Pädagogische Schwerpunkte</h5></li>
+                    <li>{{ kita.pedagogics }}</li>
+                    <li><br></li>
+                    <li><h5>Thematische Schwerpunkte</h5></li>
+                    <li>{{ kita.focus }}</li>
+                    <li><br></li>
+                    <li><h5>Mehrsprachigkeit</h5></li>
+                    <li>{{ kita.multilingualism }}</li>
+                    <li><br></li>
+                    <li><h5>besondere Angebote</h5></li>
+                    <li>{{ kita.extras }}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
 {% endblock %}
