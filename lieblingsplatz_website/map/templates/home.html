@@ -20,9 +20,10 @@
                 });
                 // specify popup options 
                 var customOptions =
-                    {
-                    'className' : 'custom'
-                    }
+                    {'className' : 'custom'}
+
+                // for clustering:
+                var markerClusters = L.markerClusterGroup();
                 
                 {% for kita in kitas %}
                     var kitaPopupContent = '<h4><a href="{% url 'kita_detail' pk=kita.pk %}">{{ kita.fields.name|linebreaks }}</a></h4> {{ kita.fields.address }} &nbsp; {{ kita.fields.zip_code }} {{ kita.fields.city }} <br> Telefon ';
@@ -31,9 +32,14 @@
                         var kitaPopupContent = kitaPopupContent.concat('<br> Email {{ kita.fields.email }}');
                     {% endif %}
 
-                    var marker = L.marker([{{ kita.fields.latitude }}, {{ kita.fields.longitude }}], {icon: yellowIcon}).addTo(map)
+                    var marker = L.marker([{{ kita.fields.latitude }}, {{ kita.fields.longitude }}], {icon: yellowIcon})
                         .bindPopup(kitaPopupContent, customOptions);
+                    markerClusters.addLayer(marker);
                 {% endfor %}
+
+                map.addLayer( markerClusters );
+
             </script>
         </div>
 {% endblock %}
+
