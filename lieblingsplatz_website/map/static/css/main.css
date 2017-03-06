@@ -105,12 +105,12 @@ h4 {
     display: table;
 }
 
+/* kita-detail*/
+
 .kita-district {
     margin-top: 90px;
     text-transform: uppercase;
 }
-
-/* kita-detail*/
 
 .kita-detail {
     background: linear-gradient(to bottom, #fff 0%, #fff 33%, rgb(243, 166, 167) 33%, rgb(243, 166, 167) 100%);
@@ -143,4 +143,27 @@ h4 {
 
 .kita-infos ul {
     list-style-type: none;
+}
+
+/* For mobile phones: */
+@media only screen and (max-width: 768px) {
+    /* no logo on mobile */
+    .logo-box {
+        display: none;
+    }
+    .menu-box {
+        display: none;
+    }
+    /* columns stacked */
+    [class*="col-"] {
+        width: 100%;
+    } 
+    /* no kita-img, less (no?) margins */
+    .kita-img {
+        display: none;
+    }
+    .kita-district,
+    .kita-contact {
+        margin-top: 0;
+    }
 }
