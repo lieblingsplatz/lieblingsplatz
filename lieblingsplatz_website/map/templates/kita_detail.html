@@ -5,11 +5,27 @@
 {% block content %}
 <div class="kita-detail">
     <div class="row">
-        <div class="col-3">
+        <div class="hidden-xs col-sm-5 col-md-4 col-lg-offset-1 col-lg-3">
+            <div class="logo-box">
+                <img src="{% static "img/logo.png" %}" alt="Lieblingsplatzlogo.">
+            </div>
+            <div class="menu-box">
+                <img src="{% static "img/menu-bg.png" %}" alt="Lieblingsplatzlogo.">
+            </div>
         </div>
-        <div class="col-9">
+        <div class="hidden-xs col-sm-7 col-md-8 col-lg-8">
+            <div class="kita-district-name">
             <div class="kita-district">
-                <h4>{{ kita.district }}</h4>
+                <h3>{{ kita.district }}</h3>
+            </div>
+            <div class="kita-name">
+                <h1>{{ kita.name }}</h1>
+            </div>
+            </div>
+        </div>
+        <div class="col-xs-offset-1 col-xs-10 hidden-sm hidden-md hidden-lg">
+            <div class="kita-district">
+                <h3>{{ kita.district }}</h3>
             </div>
             <div class="kita-name">
                 <h1>{{ kita.name }}</h1>
@@ -17,11 +33,10 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-2"></div>
-        <div class="col-4">
-            <div class="kita-contact">
+        <div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-5 col-md-offset-2 col-md-4 col-lg-offset-2 col-lg-4">
+            <div class="kita-contact color-white">
                 <ul>
-                    <li><h4>KONTAKT</h4></li>
+                    <li><h3>KONTAKT</h3></li>
                     <li><br></li>
                     <li>{{ kita.name }}</li>
                     <li>{{ kita.address }}</li>
@@ -34,43 +49,41 @@
                 </ul>
             </div>
         </div>
-        <div class="col-6">
+        <div class="hidden-xs col-sm-6 col-md-6 col-lg-6">
             <div class="kita-img">
                 <img src="{% static "img/kita-pic.png" %}">
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-4"></div>
-        <div class="col-5">
+        <div class="col-xs-offset-1 col-xs-10 col-sm-offset-3 col-sm-7 col-md-offset4 col-md-5 col-lg-offset-5 col-lg-4">
             <div class="kita-infos">
                 <ul>
-                    <li><h4>INFOS</h4></li>
+                    <li><h3>INFOS</h3></li>
                     <li><br></li>
-                    <li><h5>Einrichtungsart</h5></li>
+                    <li><h4>Einrichtungsart</h4></li>
                     <li>{{ kita.kind_of_facility }}</li>
                     <li><br></li>
-                    <li><h5>Träger</h5></li>
+                    <li><h4>Träger</h4></li>
                     <li>{{ kita.agency }}</li>
                     <li><br></li>
-                    <li><h5>Trägerart</h5>
+                    <li><h4>Trägerart</h4>
                     <li>{{ kita.kind_of_agency }}</li>
                     <li><br></li>
-                    <li><h5>Pädagogische Schwerpunkte</h5></li>
+                    <li><h4>Pädagogische Schwerpunkte</h4></li>
                     <li>{{ kita.pedagogics }}</li>
                     <li><br></li>
-                    <li><h5>Thematische Schwerpunkte</h5></li>
+                    <li><h4>Thematische Schwerpunkte</h4></li>
                     <li>{{ kita.focus }}</li>
                     <li><br></li>
-                    <li><h5>Mehrsprachigkeit</h5></li>
+                    <li><h4>Mehrsprachigkeit</h4></li>
                     <li>{{ kita.multilingualism }}</li>
                     <li><br></li>
-                    <li><h5>besondere Angebote</h5></li>
+                    <li><h4>besondere Angebote</h4></li>
                     <li>{{ kita.extras }}</li>
                 </ul>
             </div>
         </div>
-        <div class="col-3"></div>
     </div>
 </div>
 {% endblock %}
