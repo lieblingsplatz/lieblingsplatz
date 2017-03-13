@@ -28,7 +28,7 @@
                 {% for kita in kitas %}
                     var kitaPopupContent = '<h4><a href="{% url 'kita_detail' pk=kita.pk %}">{{ kita.fields.name|linebreaks }}</a></h4> {{ kita.fields.address }} &nbsp; {{ kita.fields.zip_code }} {{ kita.fields.city }}';
                     // Telefon Abfrage und hier her!  url 'kita_detail' pk=kita.fields.pk 
-                    {% if kita.fields.email %}
+                    {% if kita.fields.phonenumber %}
                         var kitaPopupContent = kitaPopupContent.concat('<br> Telefon {{ kita.fields.phonenumber }}');
                     {% endif %}
                     {% if kita.fields.email %}
