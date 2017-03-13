@@ -12,6 +12,7 @@ class Kita(models.Model):
     district = models.CharField(max_length=255) # better: define choices als field option!
     senats_id = models.IntegerField()
     # email (many-to-one! later maybe) website
+    phonenumber = models.CharField(max_length=31)
     email = models.CharField(max_length=255) # EmailField()
     website = models.URLField()
     # orga-info
