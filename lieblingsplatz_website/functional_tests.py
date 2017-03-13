@@ -16,7 +16,7 @@ class NewVisitorTest(unittest.TestCase):
 
     def insert_test_data_into_db(self):
         #file_name = "../scrape/150823_kitas_test.csv"
-        file_name = "../scrape/160123_kitas_arbeitsstand_helen_500.csv"
+        file_name = "../scrape/170312_kitas_perhand.csv"
         importer.import_csv_into_db(file_name)
 
     def test_can_see_kitas_in_english(self):
