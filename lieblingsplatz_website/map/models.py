@@ -7,39 +7,40 @@ class Kita(models.Model):
     latitude = models.FloatField()
     longitude = models.FloatField()
     address = models.CharField(max_length=255)
+    extra_address_line = models.CharField(max_length=255, blank=True)
     zip_code = models.IntegerField()
     city = models.CharField(max_length=255, default='Berlin')
     district = models.CharField(max_length=255) # better: define choices als field option!
     senats_id = models.IntegerField(default=0)
-    phonenumber = models.CharField(max_length=255, default='')
+    phonenumber = models.CharField(max_length=255, blank=True)
     # email (many-to-one! later maybe) website
-    email = models.CharField(max_length=255, default='') # EmailField()
-    website = models.URLField(default='')
+    email = models.CharField(max_length=255, blank=True) # EmailField()
+    website = models.URLField(blank=True)
     # orga-info
-    kind_of_facility = models.CharField(max_length=255, default='') #einrichtungsart
-    agency = models.CharField(max_length=255, default='') #traeger
-    kind_of_agency = models.CharField(max_length=255, default='') #traegerart
+    kind_of_facility = models.CharField(max_length=255, blank=True) #einrichtungsart
+    agency = models.CharField(max_length=255, blank=True) #traeger
+    kind_of_agency = models.CharField(max_length=255, blank=True) #traegerart
     # pedagogics
     # lblPaedAnsaetze -> in Helens Liste nicht vorhanden
-    pedagogics = models.TextField(default='') # lblPaedSchwerpunkte
-    focus = models.TextField(default='') # lblThemSchwerpunkte
-    multilingualism = models.TextField(default='') # lblMehrsprachigkeit
-    extras = models.TextField(default='') # lblBesondereAngebote
+    pedagogics = models.TextField(blank=True) # lblPaedSchwerpunkte
+    focus = models.TextField(blank=True) # lblThemSchwerpunkte
+    multilingualism = models.TextField(blank=True) # lblMehrsprachigkeit
+    extras = models.TextField(blank=True) # lblBesondereAngebote
     # opening hours
-    monday_open = models.CharField(max_length=31, default='')
-    monday_close = models.CharField(max_length=31, default='')
-    tuesday_open = models.CharField(max_length=31, default='')
-    tuesday_close = models.CharField(max_length=31, default='')
-    wednesday_open = models.CharField(max_length=31, default='')
-    wednesday_close = models.CharField(max_length=31, default='')
-    thursday_open = models.CharField(max_length=31, default='')
-    thursday_close = models.CharField(max_length=31, default='')
-    friday_open = models.CharField(max_length=31, default='')
-    friday_close = models.CharField(max_length=31, default='')
-    saturday_open = models.CharField(max_length=31, default='')
-    saturday_close = models.CharField(max_length=31, default='')
-    sunday_open = models.CharField(max_length=31, default='')
-    sunday_close = models.CharField(max_length=31, default='')
+    monday_open = models.CharField(max_length=31, blank=True)
+    monday_close = models.CharField(max_length=31, blank=True)
+    tuesday_open = models.CharField(max_length=31, blank=True)
+    tuesday_close = models.CharField(max_length=31, blank=True)
+    wednesday_open = models.CharField(max_length=31, blank=True)
+    wednesday_close = models.CharField(max_length=31, blank=True)
+    thursday_open = models.CharField(max_length=31, blank=True)
+    thursday_close = models.CharField(max_length=31, blank=True)
+    friday_open = models.CharField(max_length=31, blank=True)
+    friday_close = models.CharField(max_length=31, blank=True)
+    saturday_open = models.CharField(max_length=31, blank=True)
+    saturday_close = models.CharField(max_length=31, blank=True)
+    sunday_open = models.CharField(max_length=31, blank=True)
+    sunday_close = models.CharField(max_length=31, blank=True)
     # numbers, ages, structure
 
     def __str__(self):
